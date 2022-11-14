@@ -3,8 +3,13 @@ const path = require("path");
 
 const contactsPath = path.resolve("./db/contacts.json");
 
-function listContacts() {
-  // ...твій код
+async function listContacts() {
+  try {
+    const data = await fs.readFile(contactsPath, "utf8");
+    console.log(JSON.parse(data));
+  } catch {
+    console.error(err);
+  }
 }
 
 function getContactById(contactId) {
@@ -19,4 +24,7 @@ function addContact(name, email, phone) {
   // ...твій код
 }
 
-console.log(contactsPath);
+// console.log(contactsPath);
+
+// module.exports = { listContacts };
+module.exports = { listContacts, getContactById, removeContact, addContact };
