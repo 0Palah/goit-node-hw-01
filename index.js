@@ -11,6 +11,7 @@ const contactsPath = path.resolve("./db/contacts.json");
 
 const greeting = "Hello world!!!";
 
-console.log(greeting);
-console.log(contactsPath);
+// console.log(greeting);
+// console.log(__filename);
+// console.log(contactsPath);
 console.log(listContacts());
