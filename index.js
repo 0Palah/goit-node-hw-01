@@ -14,4 +14,6 @@ const greeting = "Hello world!!!";
 // console.log(greeting);
 // console.log(__filename);
 // console.log(contactsPath);
-console.log(listContacts());
+// console.log(listContacts());
+// getContactById(8);
+removeContact(7);
