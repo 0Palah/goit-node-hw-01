@@ -7,7 +7,7 @@ const {
   addContact,
 } = require("./contacts.js");
 
-const contactsPath = path.resolve("./db/contacts.json");
+// const contactsPath = path.resolve("./db/contacts.json");
 
 const greeting = "Hello world!!!";
 
@@ -16,5 +16,5 @@ const greeting = "Hello world!!!";
 // console.log(contactsPath);
 // console.log(listContacts());
 // listContacts();
-removeContact(6);
-// getContactById(8);
+removeContact(7);
+getContactById(8);

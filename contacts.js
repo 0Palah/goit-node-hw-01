@@ -35,11 +35,13 @@ async function removeContact(contactId) {
       parsedData.filter((el) => el.id !== contactId.toString())
     );
     console.log(`filteredData: ${filteredData}`);
-    // await fs.writeFile(contactsPath, filteredData, "utf8");
+    // fs.writeFile(contactsPath, filteredData, "utf8");
   } catch (err) {
     console.error(err);
   }
 }
+
+removeContact(6);
 
 function addContact(name, email, phone) {
   // ...твій код
