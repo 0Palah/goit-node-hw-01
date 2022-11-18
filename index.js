@@ -16,5 +16,5 @@ const greeting = "Hello world!!!";
 // console.log(contactsPath);
 // console.log(listContacts());
 // listContacts();
-removeContact(7);
-getContactById(8);
+// removeContact(7);
+// getContactById(7);
