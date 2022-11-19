@@ -43,8 +43,13 @@ async function removeContact(contactId) {
 
 // removeContact(6);
 
-async function addContact(name, email, phone) {
+// async function addContact(name, email, phone) {
+async function addContact() {
+  const [, , name, email, phone] = process.argv;
   console.log(name);
+  console.log(email);
+  console.log(phone);
+
   console.log(process.argv);
 }
 
