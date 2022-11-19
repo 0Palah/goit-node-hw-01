@@ -34,18 +34,19 @@ async function removeContact(contactId) {
     const filteredData = JSON.stringify(
       parsedData.filter((el) => el.id !== contactId.toString())
     );
-    console.log(`filteredData: ${filteredData}`);
+    // console.log(`filteredData: ${filteredData}`);
     fs.writeFile(contactsPath, filteredData, "utf8");
   } catch (err) {
     console.error(err);
   }
 }
 
-removeContact(9);
+// removeContact(6);
 
-function addContact(name, email, phone) {}
-
-// console.log(contactsPath);
+async function addContact(name, email, phone) {
+  console.log(name);
+  console.log(process.argv);
+}
 
 // module.exports = { listContacts };
 module.exports = { listContacts, getContactById, removeContact, addContact };
