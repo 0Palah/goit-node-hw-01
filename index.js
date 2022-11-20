@@ -6,6 +6,7 @@ const {
   removeContact,
   addContact,
 } = require("./contacts.js");
+const { program } = require("commander");
 
 // const contactsPath = path.resolve("./db/contacts.json");
 
@@ -17,5 +18,5 @@ const greeting = "Hello world!!!";
 // console.log(listContacts());
 // listContacts();
 // removeContact("202f6b42-fd77-4d04-8691-4c88df149912");
-getContactById(10);
+getContactById(25);
 // addContact();
