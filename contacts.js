@@ -22,8 +22,13 @@ async function getContactById(contactId) {
     const contactById = await parsedData.find(
       (el) => el.id === contactId.toString()
     );
-    console.log(contactById);
-    return contactById;
+    if (!!contactById) {
+      console.log(contactById);
+      return contactById;
+    } else {
+      console.log(`Contact with id:${contactId} not found!!!`);
+      return contactById;
+    }
   } catch (err) {
     console.error(err);
   }
