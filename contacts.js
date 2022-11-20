@@ -48,9 +48,9 @@ async function removeContact(contactId) {
 }
 
 // async function addContact(name, email, phone) {
-async function addContact() {
+async function addContact(name, email, phone) {
   try {
-    const [, , name, email, phone] = process.argv;
+    // const [, , name, email, phone] = process.argv;
     const newContact = {
       id: uuidv4(),
       name,
