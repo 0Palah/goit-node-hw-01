@@ -16,6 +16,6 @@ const greeting = "Hello world!!!";
 // console.log(contactsPath);
 // console.log(listContacts());
 // listContacts();
-// removeContact(7);
+// removeContact("202f6b42-fd77-4d04-8691-4c88df149912");
 // getContactById(9);
 addContact();

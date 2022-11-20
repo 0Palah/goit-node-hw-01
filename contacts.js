@@ -1,13 +1,15 @@
 const fs = require("fs").promises;
 const path = require("path");
+const { v4: uuidv4 } = require("uuid");
 
 const contactsPath = path.resolve("./db/contacts.json");
 
 async function listContacts() {
   try {
     const data = await fs.readFile(contactsPath, "utf8");
-    console.log(JSON.parse(data));
-    return data;
+    const parsedData = JSON.parse(data);
+    console.log(parsedData);
+    return parsedData;
   } catch (err) {
     console.error(err);
   }
@@ -34,24 +36,30 @@ async function removeContact(contactId) {
     const filteredData = JSON.stringify(
       parsedData.filter((el) => el.id !== contactId.toString())
     );
-    // console.log(`filteredData: ${filteredData}`);
-    fs.writeFile(contactsPath, filteredData, "utf8");
+    await fs.writeFile(contactsPath, filteredData, "utf8");
   } catch (err) {
     console.error(err);
   }
 }
 
-// removeContact(6);
-
 // async function addContact(name, email, phone) {
 async function addContact() {
-  const [, , name, email, phone] = process.argv;
-  console.log(name);
-  console.log(email);
-  console.log(phone);
-
-  console.log(process.argv);
+  try {
+    const [, , name, email, phone] = process.argv;
+    const newContact = {
+      id: uuidv4(),
+      name,
+      email,
+      phone,
+    };
+    const data = await fs.readFile(contactsPath, "utf8");
+    const parsedData = JSON.parse(data);
+    const total = parsedData.push(newContact);
+    console.log(parsedData);
+    await fs.writeFile(contactsPath, JSON.stringify(parsedData), "utf8");
+  } catch (err) {
+    console.error(err);
+  }
 }
 
-// module.exports = { listContacts };
 module.exports = { listContacts, getContactById, removeContact, addContact };
