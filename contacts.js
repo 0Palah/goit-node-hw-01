@@ -1,6 +1,7 @@
 const fs = require("fs").promises;
 const path = require("path");
 const { v4: uuidv4 } = require("uuid");
+const colors = require("colors");
 
 const contactsPath = path.resolve("./db/contacts.json");
 
@@ -26,7 +27,9 @@ async function getContactById(contactId) {
       console.log(contactById);
       return contactById;
     } else {
-      console.log(`Contact with id:${contactId} not found!!!`);
+      console.log(
+        `Contact with id:${contactId} not found!!!`.underline.brightRed
+      );
       return contactById;
     }
   } catch (err) {
@@ -47,10 +50,8 @@ async function removeContact(contactId) {
   }
 }
 
-// async function addContact(name, email, phone) {
 async function addContact(name, email, phone) {
   try {
-    // const [, , name, email, phone] = process.argv;
     const newContact = {
       id: uuidv4(),
       name,
@@ -60,7 +61,7 @@ async function addContact(name, email, phone) {
     const data = await fs.readFile(contactsPath, "utf8");
     const parsedData = JSON.parse(data);
     const total = parsedData.push(newContact);
-    console.log(parsedData);
+
     await fs.writeFile(contactsPath, JSON.stringify(parsedData), "utf8");
   } catch (err) {
     console.error(err);
